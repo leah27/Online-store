@@ -1,0 +1,81 @@
+.title {
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 42px;
+    line-height: 160%;
+    text-transform: capitalize;
+    margin-left: 6.94%;
+}
+.wrapper {
+    margin-left: 6.94%;
+    margin-right: 6.94%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.container {
+    position: relative;
+    margin-bottom: 103px;
+}
+.product {
+    width: 386px;
+    height: 444px;
+    background-color: #FFFFFF;
+}
+.add {
+    width: 52px;
+    height: 52px;
+    background-image: url('../../images/cartIcon.png');
+    position: absolute;
+    bottom: 72px;
+    right: 26px;
+    background-size: contain;
+    display: none;
+    cursor: pointer;
+}
+.container:hover {
+    box-shadow: 1px 3px 8px -1px rgba(0, 0, 0, 0.39);
+}
+.container:hover > div {
+    display: block;
+}
+.img {
+    padding: 16px 16px 0;
+    height: 330px;
+    width: 354px;
+    object-fit: contain;
+}
+.name {
+    font-family: 'Raleway';
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 160%;
+    color: #1D1F22;
+    text-transform: capitalize;
+    margin-top: 0;
+    padding-left: 16px;
+}
+.price {
+    font-family: 'Raleway';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 160%;
+    color: #1D1F22;
+    margin-top: 0;
+    padding-left: 16px;
+}
+.out {
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 24px;
+    color: #8D8F9A;
+    text-transform: uppercase;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+}
+#blur {
+    filter: blur(1px);
+}

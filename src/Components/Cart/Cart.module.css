@@ -1,0 +1,259 @@
+.title {
+    font-family: 'Raleway';
+    text-transform: capitalize;
+    font-weight: 700;
+    font-size: 16px;
+    padding-top: 16px;
+    padding-left: 16px;
+    margin-top: 0;
+    margin-bottom: 23px;
+}
+
+.amount {
+    font-weight: 500;
+}
+.overlayItem {
+    width: 293px;
+    height: 150px;
+    margin: auto;
+    margin-bottom: 41px;
+    display: flex;
+}
+.pageItem {
+    min-width: 950px;
+    height: 250px;
+    margin-bottom: 40px;
+    border-top: 1px solid #E5E5E5;
+    padding-top: 20px;
+    display: flex;
+    margin-right: 16.87%
+}
+.overlayBrand, .overlayProduct {
+    font-family: 'Raleway';
+    font-size: 16px;
+    font-weight: 300;
+    padding-bottom: 5px;
+    text-transform: capitalize;
+    margin: 0;
+    /* line-height: 160%; */
+    color: #1D1F22;
+}
+.pageBrand {
+    font-family: 'Raleway';
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 27px;
+    color: #1D1F22;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+.pageProduct {
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 27px;
+    margin: 0;
+    text-transform: capitalize;
+}
+.overlayPrice {
+    font-family: 'Raleway';
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 160%;
+}
+.pagePrice {
+    font-family: 'Raleway';
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 18px;
+    padding-top: 14px;
+}
+.overlayItem button {
+    height: 24px;
+    min-width: 24px;
+    border: 1px solid #1D1F22;
+    font-family: 'Source Sans Pro';
+    font-weight: 400;
+    font-size: 14px;
+    color: #1D1F22;
+    background-color: transparent;
+}
+.pageItem button {
+    background-color: transparent;
+    border: 1px solid #1D1F22;
+    font-family: 'Source Sans Pro';
+    font-size: 16px;
+    font-weight: 400;
+    color: #1D1F22;
+    padding: 0;
+}
+
+.overlayAttributeButtons button {
+    margin-right: 8px;
+    margin-bottom: 3px;
+}
+.pageAttributeButtons {
+    bottom: -4px
+}
+.pageAttributeButtons button {
+    width: 63px!important;
+    height: 45px!important;
+    margin-right: 12px;
+    margin-bottom: 4px;
+}
+.overlayImg {
+    width: 105px;
+    height: 150px;
+    object-fit: contain;
+}
+.pageImg {
+    width: 75%;
+    height: 250px;
+    object-fit: contain;
+}
+.overlayRight, .overlayLeft {
+    /* height: inherit; */
+    position: relative;
+}
+.overlayLeft {
+    width: 55%;
+}
+.overlayRight {
+    width: 45%;
+}
+.overlayLeft, .pageLeft  {
+    float: left;
+}
+.overlayRight, .pageRight {
+    float: right;
+}
+.pageLeft {
+    width: 80%;
+    height: inherit;
+    position: relative;
+}
+.pageRight {
+    width: 20%;
+    height: inherit;
+    position: relative;
+}
+.overlayPlus, .overlayMinus, .pagePlus, .pageMinus, 
+.overlayCounter, .pageCounter, .overlayImg, .pageImg, 
+.overlayAttributeButtons, .pageAttributeButtons {
+    position: absolute;
+}
+.overlayPlus {
+    background-image: url('../../images/plus-square.png');
+    background-repeat: no-repeat;
+    border: none!important;
+    top: 0;
+}
+.overlayAttributeButtons {
+    bottom: -3px
+}
+.overlayMinus {
+    bottom: 0;
+    background-image: url('../../images/minus-square.png');
+    background-repeat: no-repeat;
+    background-color: none;
+    border: none!important;
+}
+.pagePlus {
+    background-image: url('../../images/plus.png');
+    top: 0;
+}
+.pagePlus, .pageMinus {
+    width: 45px!important;
+    height: 45px!important;
+    background-repeat: no-repeat;
+    border: none!important;
+}
+.pageMinus {
+    background-image: url('../../images/minus.png');
+    bottom: 0;
+}
+.overlayCounter {
+    left: 7px;
+    top: 54px;
+    font-family: 'Raleway';
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 160%;
+}
+.pageCounter {
+    left: 17px;
+    top: 100px;
+    font-family: 'Raleway';
+    font-size: 24px;
+    line-height: 160%;
+    font-weight: 400;
+}
+.overlayImg, .pageImg {
+    top: 0;
+    right: 0;
+}
+.totalWrapper {
+    width: 289px;
+    height: 28px;
+    display: flex;
+    position: absolute;
+    bottom: 98px;
+    left: 16px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+.total {
+    font-family: 'Roboto';
+    font-weight: 500;
+    line-height: 18px;
+    text-transform: capitalize;
+}
+.sum {
+    font-family: 'Raleway';
+    font-weight: 700;
+    line-height: 160%;
+}
+.overlayLeftArrow, .overlayRightArrow, .pageLeftArrow, .pageRightArrow {
+    width: 12px;
+    height: 20px;
+    position: absolute;
+    background: gainsboro;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 9;
+    box-shadow: 1px 3px 8px -1px rgb(0 0 0 / 39%);
+    cursor: pointer;
+    opacity: .7;
+}
+.pageLeftArrow, .overlayLeftArrow {
+    background-image: url('../../images/left.png')!important;
+}
+.pageRightArrow, .overlayRightArrow {
+    background-image: url('../../images/right.png')!important;
+}
+.pageLeftArrow {
+    top: 111px;
+    left: 25%;
+}
+.pageRightArrow {
+    top: 111px;
+    left: 95%;
+}
+.overlayLeftArrow {
+    top: 60px;
+    left: 20%;
+}
+.overlayRightArrow {
+    top: 60px;
+    left: 90%;
+}
+#hide {
+    display: none;
+}
+
+
+
+
+

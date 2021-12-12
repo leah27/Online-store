@@ -1,0 +1,23 @@
+.nav {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+.navItem {
+    color: #1D1F22;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 28px;
+}
+#active {
+    font-weight: 600 !important;
+    color: #5ECE7B !important;
+    border-bottom: 2px solid #5ECE7B;
+}

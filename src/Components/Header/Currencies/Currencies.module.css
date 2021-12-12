@@ -1,0 +1,44 @@
+.currency, .listShown {
+    font-family: 'Raleway';
+    font-weight: 500;
+    font-size: 18px;
+    width: 38px;
+    height: 20px;
+    text-align: center;
+    padding-right: 22px;
+    position: relative;
+    cursor: pointer;
+}
+.currency::before {
+    content: url('../../../images/down.png');
+    position: absolute;
+    right: 25px;
+    bottom: 0;
+}
+.listShown::before {
+    content: url('../../../images/up.png');
+    position: absolute;
+    right: 25px;
+    bottom: 0;
+}
+.currencyList {
+    width: 114px;
+    /* height: 169px; */
+    background: #FFFFFF;
+    box-shadow: 1px 3px 8px -1px rgba(0, 0, 0, 0.39);
+    position: absolute;
+    top: 30.5px;
+    left: -10px;
+    z-index: 9;
+}
+.currencyList li {
+    font-family: 'Raleway';
+    font-size: 18px;
+    line-height: 28.8px;
+    text-align: center;
+    font-weight: 500;
+    cursor: pointer;
+    list-style: none;
+    height: 29px;
+    padding: 20px 20px 0px;
+}
