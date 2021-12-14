@@ -12,13 +12,13 @@
 .currency::before {
     content: url('../../../images/down.png');
     position: absolute;
-    right: 25px;
+    right: 21px;
     bottom: 0;
 }
 .listShown::before {
     content: url('../../../images/up.png');
     position: absolute;
-    right: 25px;
+    right: 21px;
     bottom: 0;
 }
 .currencyList {

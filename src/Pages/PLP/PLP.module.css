@@ -24,13 +24,12 @@
     background-color: #FFFFFF;
 }
 .add {
-    width: 52px;
-    height: 52px;
+    width: 72px;
+    height: 72px;
     background-image: url('../../images/cartIcon.png');
     position: absolute;
-    bottom: 72px;
-    right: 26px;
-    background-size: contain;
+    bottom: 52px;
+    right: 11px;
     display: none;
     cursor: pointer;
 }

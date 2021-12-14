@@ -39,22 +39,24 @@ class MyBag extends React.Component {
                     {this.props.counter > 0 && <span className={style.counter}>{this.props.counter}</span>}
                 </div>
                 {this.state.showCart && this.props.chosenProducts.length > 0 &&
-                    <div className={style.cart}>
-                        <div className={style.close} onClick={this.close}></div>
-                        <Cart displayType="overlay" addProduct={this.props.addProduct}
-                            counter={this.props.counter}
-                            totalPrice={this.props.totalPrice}
-                            chosenProducts={this.props.chosenProducts}
-                            increment={this.props.increment}
-                            removeProduct={this.props.removeProduct}
-                            decrement={this.props.decrement}
-                            uniqueChosenProducts={this.props.uniqueChosenProducts}
-                            currentCurrency={this.props.currentCurrency}
-                        />
-                        <div className={style.buttons}>
-                            <button className={`${style.button} ${style.view}`}><Link to={"/Cart"}>
-                                view bag</Link></button>
-                            <button className={`${style.button} ${style.checkout}`}>check out</button>
+                    <div className={style.background}>
+                        <div className={style.cart}>
+                            <div className={style.close} onClick={this.close}></div>
+                            <Cart displayType="overlay" addProduct={this.props.addProduct}
+                                counter={this.props.counter}
+                                totalPrice={this.props.totalPrice}
+                                chosenProducts={this.props.chosenProducts}
+                                increment={this.props.increment}
+                                removeProduct={this.props.removeProduct}
+                                decrement={this.props.decrement}
+                                uniqueChosenProducts={this.props.uniqueChosenProducts}
+                                currentCurrency={this.props.currentCurrency}
+                            />
+                            <div className={style.buttons}>
+                                <button className={`${style.button} ${style.view}`} onClick={this.close}><Link to={"/Cart"}>
+                                    view bag</Link></button>
+                                <button className={`${style.button} ${style.checkout}`}>check out</button>
+                            </div>
                         </div>
                     </div>
                 }

@@ -3,11 +3,14 @@ import style from './PDP.module.css'
 import { withRouter } from '../../Hocs/withRouter'
 import { getPriceByCurrency } from '../../Services/getPriceByCurrency'
 import Attributes from '../../Components/Attributes/Attributes'
+import { Parser } from 'html-to-react'
 class PDP extends React.Component {
     state = { activeImgIndex: 0 }
     addToCart = () => {
-        this.props.addProduct(this.props.location.state)
-        this.props.increment(this.props.counter)
+        if (this.props.location.state.inStock) {
+            this.props.addProduct(this.props.location.state)
+            this.props.increment(this.props.counter)
+        }
     }
     render() {
         const data = this.props.location.state
@@ -29,7 +32,7 @@ class PDP extends React.Component {
                             {`${this.props.currentCurrency}${data.prices && Object.values(getPriceByCurrency(data.prices, this.props.currentCurrency)[0])[1]}`}
                         </div>
                         <button className={style.add} onClick={this.addToCart.bind(this)}>add to cart</button>
-                        <div className={style.text} dangerouslySetInnerHTML={{ __html: data.description }}></div>
+                        <div className={style.text}>{Parser().parse(data.description)}</div>
                     </div>
                 </div>
             </>
