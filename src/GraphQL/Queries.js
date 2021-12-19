@@ -1,4 +1,10 @@
 import { gql } from '@apollo/client'
+
+export const GET_CURRENCIES = gql`
+query{
+    currencies
+}`
+
 export const GET_DATA = gql`
 query{
     categories	{
@@ -27,3 +33,5 @@ query{
         }
     }
 }`
+
+

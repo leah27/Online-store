@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Header from './Components/Header/Header';
 import RouteSwitcher from './Components/RouteSwitcher/RouteSwitcher';
-import { GET_DATA } from './GraphQL/Queries'
+import { GET_DATA, GET_CURRENCIES } from './GraphQL/Queries'
 import { initializeApollo } from './GraphQL/initializeApollo'
 import { connect } from 'react-redux'
 import { setProducts } from './redux/actions/products'
@@ -14,11 +14,17 @@ const res = client.query({
   query: GET_DATA,
   variables: {},
 })
-// console.log(res)
+const currencies = client.query({
+  query: GET_CURRENCIES,
+  variables: {},
+})
 class App extends React.Component {
   componentDidMount() {
     res.then(res => {
       this.props.setCategories(res.data.categories.map(categories => categories.name))
+    })
+    currencies.then(res => {
+      this.props.setCurrencies(res.data.currencies)
     })
   }
   componentDidUpdate() {

@@ -87,6 +87,10 @@
     text-transform: uppercase;
     margin-bottom: 40px;
 }
+.add:hover {
+    filter: blur(1px);
+    box-shadow: 1px 3px 8px -1px rgb(0 0 0 / 39%);
+}
 .text {
     font-family: 'Roboto';
     font-weight: 400;

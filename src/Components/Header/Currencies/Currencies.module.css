@@ -12,7 +12,7 @@
 .currency::before {
     content: url('../../../images/down.png');
     position: absolute;
-    right: 21px;
+    right: 20px;
     bottom: 0;
 }
 .listShown::before {
@@ -35,10 +35,15 @@
     font-family: 'Raleway';
     font-size: 18px;
     line-height: 28.8px;
-    text-align: center;
+    text-align: left;
     font-weight: 500;
     cursor: pointer;
     list-style: none;
-    height: 29px;
-    padding: 20px 20px 0px;
+    padding: 20px 27px 0px 20px;
+}
+.currencyList li:last-child {
+    padding-bottom: 20px;
+}
+.currencyList li:hover {
+    font-weight: bold;
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import style from './Currencies.module.css'
-
+import { setCurrencySymbol } from '../../../Services/setCurrencySymbol'
 class Currencies extends React.Component {
     state = { showCurrencies: false }
     currencyRef = React.createRef()
@@ -25,7 +25,7 @@ class Currencies extends React.Component {
                 <div className={this.state.showCurrencies ? style.listShown : style.currency} onClick={this.toggleList}>
                     {this.props.currentCurrency}
                     {this.state.showCurrencies && <div className={style.currencyList}>
-                        {this.props.currencies.map((currency, index) => <li key={index} onClick={() => this.props.setCurrentCurrency(currency.currencySymbol)}>{Object.values(currency).join(' ')}</li>)}
+                        {this.props.currencies.map((currency, index) => <li key={index} onClick={() => this.props.setCurrentCurrency(setCurrencySymbol(currency))}>{setCurrencySymbol(currency) + ' ' + currency}</li>)}
                     </div>}
                 </div>
             </div>

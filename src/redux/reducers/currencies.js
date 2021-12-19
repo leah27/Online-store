@@ -1,11 +1,6 @@
 const initialState = {
     currentCurrency: '$',
-    currencies: [{ "currencySymbol": "$", "currency": "USD" },
-    { "currencySymbol": "£", "currency": "GBP" },
-    { "currencySymbol": "¥", "currency": "JPY" },
-    { "currencySymbol": "A$", "currency": "AUD" },
-    { "currencySymbol": "₽", "currency": "RUB" },
-    ]
+    currencies: []
 }
 
 const currencies = (state = initialState, action) => {
