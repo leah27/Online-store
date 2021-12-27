@@ -92,6 +92,7 @@
 .overlayAttributeButtons button {
     margin-right: 8px;
     margin-bottom: 3px;
+    cursor: auto;
 }
 .pageAttributeButtons {
     bottom: -4px
@@ -101,6 +102,7 @@
     height: 45px!important;
     margin-right: 12px;
     margin-bottom: 4px;
+    cursor: auto;
 }
 .overlayImg {
     width: 105px;

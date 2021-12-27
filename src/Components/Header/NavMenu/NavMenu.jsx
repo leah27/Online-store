@@ -3,23 +3,15 @@ import style from './NavMenu.module.css'
 import { NavLink } from 'react-router-dom'
 
 class NavMenu extends React.Component {
-    // state = { path: '/Women' }
-    // onLocationChange = () => {
-    //     this.setState({ path: window.location.pathname })
-    // }
     render() {
-        // const menuItems = [
-        //     { id: 0, title: 'Women', redirectUrl: '/Women' },
-        //     { id: 1, title: 'Men', redirectUrl: '/Men' },
-        //     { id: 2, title: 'Kids', redirectUrl: '/Kids' },
-        // ]
+        const { categories, setActiveCategory, activeCategoryIndex } = this.props
         return (
             <ul className={style.nav}>
-                {this.props.categories.map((category, index) => <li key={index}
-                    onClick={() => this.props.setActiveCategory(index)}>
+                {categories.map((category, index) => <li key={index}
+                    onClick={() => setActiveCategory(index)}>
                     <NavLink to={'/ProductList'}
                         className={style.navItem}
-                        id={this.props.activeCategoryIndex === index ? style.active : ""}
+                        id={activeCategoryIndex === index ? style.active : ""}
                     >
                         {category}
                     </NavLink>

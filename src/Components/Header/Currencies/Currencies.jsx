@@ -20,12 +20,13 @@ class Currencies extends React.Component {
         document.body.removeEventListener('click', this.handleOutsideClick)
     }
     render() {
+        const { currentCurrency, currencies, setCurrentCurrency } = this.props
         return (
             <div ref={this.currencyRef}>
                 <div className={this.state.showCurrencies ? style.listShown : style.currency} onClick={this.toggleList}>
-                    {this.props.currentCurrency}
+                    {currentCurrency}
                     {this.state.showCurrencies && <div className={style.currencyList}>
-                        {this.props.currencies.map((currency, index) => <li key={index} onClick={() => this.props.setCurrentCurrency(setCurrencySymbol(currency))}>{setCurrencySymbol(currency) + ' ' + currency}</li>)}
+                        {currencies.map((currency, index) => <li key={index} onClick={() => setCurrentCurrency(setCurrencySymbol(currency))}>{setCurrencySymbol(currency) + ' ' + currency}</li>)}
                     </div>}
                 </div>
             </div>

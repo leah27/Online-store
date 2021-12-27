@@ -21,7 +21,7 @@
 .product {
     width: 386px;
     height: 444px;
-    background-color: #FFFFFF;
+    background-color: transparent;
 }
 .add {
     width: 72px;
@@ -40,10 +40,9 @@
     display: block;
 }
 .img {
-    padding: 16px 16px 0;
+    margin: 16px 16px 0;
     height: 330px;
     width: 354px;
-    object-fit: contain;
 }
 .name {
     font-family: 'Raleway';

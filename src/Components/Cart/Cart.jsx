@@ -30,7 +30,8 @@ class Cart extends React.Component {
                             {`${this.props.currentCurrency}${item.prices && Object.values(getPriceByCurrency(item.prices, this.props.currentCurrency)[0])[1]}`}
                         </div>
                         <div className={this.props.displayType === "overlay" ? style.overlayAttributeButtons : style.pageAttributeButtons}>
-                            {item.attributes && <Attributes attributes={item.attributes} attributeCN="cartAttribute" activeCN={this.props.displayType === "overlay" ? "overlayActive" : "active"} />}
+                            {item.attributes && <Attributes productId={item.id} activeAttributes={this.props.activeAttributes}
+                            attributes={item.attributes} attributeCN="cartAttribute" activeCN={this.props.displayType === "overlay" ? "overlayActive" : "active"} />}
                         </div>
                     </div>
                     <div className={this.props.displayType === "overlay" ? style.overlayRight : style.pageRight}>

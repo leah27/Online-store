@@ -7,7 +7,7 @@ import { initializeApollo } from './GraphQL/initializeApollo'
 import { connect } from 'react-redux'
 import { setProducts } from './redux/actions/products'
 import { setCategories, setActiveCategory, setShowDescription } from './redux/actions/categories';
-import { addProduct, increment, removeProduct, decrement } from './redux/actions/cart'
+import { addProduct, increment, removeProduct, decrement, setActiveAttribute } from './redux/actions/cart'
 import { setCurrencies, setCurrentCurrency } from './redux/actions/currencies';
 const client = initializeApollo()
 const res = client.query({
@@ -33,43 +33,54 @@ class App extends React.Component {
     })
   }
   render() {
-    let uniqueChosenProducts = Array.from(new Set(this.props.chosenProducts.map(p => p.id)))
+    const { categories, activeCategoryIndex,
+      setShowDescription, setActiveCategory,
+      counter, totalPrice, chosenProducts,
+      addProduct, increment, removeProduct,
+      decrement, currentCurrency, setCurrentCurrency,
+      activeAttributes, showDescription, products,
+      setActiveAttribute, currencies } = this.props
+    let uniqueChosenProducts = Array.from(new Set(chosenProducts.map(p => p.id)))
       .map(id => {
-        return this.props.chosenProducts.find(p => p.id === id)
+        return chosenProducts.find(p => p.id === id)
+        // new Set(chosenProducts.find(p => p.id === id).attributes.map(attribute => attribute))
       })
     return (
       <>
         <div className="app">
-          <Header categories={this.props.categories}
-            activeCategoryIndex={this.props.activeCategoryIndex}
-            setShowDescription={this.props.setShowDescription}
-            setActiveCategory={this.props.setActiveCategory}
-            counter={this.props.counter}
-            totalPrice={this.props.totalPrice}
-            chosenProducts={this.props.chosenProducts}
+          <Header categories={categories}
+            activeCategoryIndex={activeCategoryIndex}
+            setShowDescription={setShowDescription}
+            setActiveCategory={setActiveCategory}
+            counter={counter}
+            totalPrice={totalPrice}
+            chosenProducts={chosenProducts}
             uniqueChosenProducts={uniqueChosenProducts}
-            addProduct={this.props.addProduct}
-            increment={this.props.increment}
-            removeProduct={this.props.removeProduct}
-            decrement={this.props.decrement}
-            currentCurrency={this.props.currentCurrency}
-            currencies={this.props.currencies}
-            setCurrentCurrency={this.props.setCurrentCurrency}
+            addProduct={addProduct}
+            increment={increment}
+            removeProduct={removeProduct}
+            decrement={decrement}
+            currentCurrency={currentCurrency}
+            currencies={currencies}
+            setCurrentCurrency={setCurrentCurrency}
+            activeAttributes={activeAttributes}
           />
           <section className="content">
-            <RouteSwitcher categories={this.props.categories}
-              activeCategoryIndex={this.props.activeCategoryIndex}
-              showDescription={this.props.showDescription}
-              setShowDescription={this.props.setShowDescription}
-              products={this.props.products}
-              chosenProducts={this.props.chosenProducts}
+            <RouteSwitcher categories={categories}
+              activeCategoryIndex={activeCategoryIndex}
+              showDescription={showDescription}
+              setShowDescription={setShowDescription}
+              products={products}
+              chosenProducts={chosenProducts}
+              activeAttributes={activeAttributes}
+              setActiveAttribute={setActiveAttribute}
               uniqueChosenProducts={uniqueChosenProducts}
-              addProduct={this.props.addProduct}
-              increment={this.props.increment}
-              removeProduct={this.props.removeProduct}
-              decrement={this.props.decrement}
-              counter={this.props.counter}
-              currentCurrency={this.props.currentCurrency}
+              addProduct={addProduct}
+              increment={increment}
+              removeProduct={removeProduct}
+              decrement={decrement}
+              counter={counter}
+              currentCurrency={currentCurrency}
             />
           </section>
         </div>
@@ -86,6 +97,7 @@ const mapStateToProps = (state) => {
     totalPrice: state.cart.totalPrice,
     counter: state.cart.counter,
     chosenProducts: state.cart.chosenProducts,
+    activeAttributes: state.cart.activeAttributes,
     currencies: state.currencies.currencies,
     currentCurrency: state.currencies.currentCurrency
   }
@@ -100,6 +112,7 @@ const mapDispatchToProps = {
   increment,
   removeProduct,
   decrement,
+  setActiveAttribute,
   setCurrencies,
   setCurrentCurrency
 }

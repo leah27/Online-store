@@ -1,5 +1,4 @@
 import React from 'react'
-// import { GetImagePath } from '../../Services/common'
 import Currencies from './Currencies/Currencies'
 import style from './Header.module.css'
 import MyBag from './MyBag/MyBag'
@@ -7,25 +6,33 @@ import NavMenu from './NavMenu/NavMenu'
 
 class Header extends React.Component {
     render() {
+        const { categories, activeCategoryIndex,
+            setActiveCategory, currentCurrency,
+            currencies, setCurrentCurrency,
+            addProduct, counter, totalPrice,
+            chosenProducts, uniqueChosenProducts,
+            increment, removeProduct, decrement,
+            activeAttributes } = this.props
         return (
             <header className={style.header}>
-                <NavMenu categories={this.props.categories}
-                    activeCategoryIndex={this.props.activeCategoryIndex}
-                    setActiveCategory={this.props.setActiveCategory} />
+                <NavMenu categories={categories}
+                    activeCategoryIndex={activeCategoryIndex}
+                    setActiveCategory={setActiveCategory} />
 
                 <div className={style.actions}>
-                    <Currencies currentCurrency={this.props.currentCurrency}
-                        currencies={this.props.currencies}
-                        setCurrentCurrency={this.props.setCurrentCurrency} />
-                    <MyBag addProduct={this.props.addProduct}
-                        counter={this.props.counter}
-                        totalPrice={this.props.totalPrice}
-                        chosenProducts={this.props.chosenProducts}
-                        uniqueChosenProducts={this.props.uniqueChosenProducts}
-                        increment={this.props.increment}
-                        removeProduct={this.props.removeProduct}
-                        decrement={this.props.decrement}
-                        currentCurrency={this.props.currentCurrency}
+                    <Currencies currentCurrency={currentCurrency}
+                        currencies={currencies}
+                        setCurrentCurrency={setCurrentCurrency} />
+                    <MyBag addProduct={addProduct}
+                        counter={counter}
+                        totalPrice={totalPrice}
+                        chosenProducts={chosenProducts}
+                        uniqueChosenProducts={uniqueChosenProducts}
+                        increment={increment}
+                        removeProduct={removeProduct}
+                        decrement={decrement}
+                        currentCurrency={currentCurrency}
+                        activeAttributes={activeAttributes}
                     />
                 </div>
             </header >

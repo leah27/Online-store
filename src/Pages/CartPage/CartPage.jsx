@@ -5,24 +5,23 @@ import { withRouter } from '../../Hocs/withRouter'
 
 class CartPage extends React.Component {
     render() {
-        //console.log(this.props.chosenProducts)
-        //const chosenProducts = this.props.chosenProducts
-        // const uniqueChosenProducts = Array.from(new Set(chosenProducts.map(p => p.id)))
-        //     .map(id => {
-        //         return chosenProducts.find(p => p.id === id)
-        //     })
+        const { chosenProducts, totalPrice, increment,
+            decrement, counter, addProduct, removeProduct,
+            uniqueChosenProducts, currentCurrency,
+            activeAttributes } = this.props
         return (
             <div className={style.container}>
                 <h1 className={style.title}>cart</h1>
-                <Cart displayType="page" chosenProducts={this.props.chosenProducts}
-                    totalPrice={this.props.totalPrice}
-                    increment={this.props.increment}
-                    decrement={this.props.decrement}
-                    counter={this.props.counter}
-                    addProduct={this.props.addProduct}
-                    removeProduct={this.props.removeProduct}
-                    uniqueChosenProducts={this.props.uniqueChosenProducts}
-                    currentCurrency={this.props.currentCurrency}
+                <Cart displayType="page" chosenProducts={chosenProducts}
+                    totalPrice={totalPrice}
+                    increment={increment}
+                    decrement={decrement}
+                    counter={counter}
+                    addProduct={addProduct}
+                    removeProduct={removeProduct}
+                    uniqueChosenProducts={uniqueChosenProducts}
+                    currentCurrency={currentCurrency}
+                    activeAttributes={activeAttributes}
                 />
             </div>
         )

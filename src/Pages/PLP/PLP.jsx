@@ -3,10 +3,13 @@ import style from './PLP.module.css'
 import { Link } from 'react-router-dom'
 import { getPriceByCurrency } from '../../Services/getPriceByCurrency'
 class PLP extends React.Component {
-    addToCart = (product, inStock) => {
+    addToCart = (product, inStock, productId, attributes, attributeIndex) => {
         if (inStock) {
             this.props.addProduct(product)
             this.props.increment(this.props.counter)
+            attributes.map(attribute =>
+                this.props.setActiveAttribute(productId, attribute.id, attributeIndex)
+            )
         }
     }
     render() {
@@ -15,7 +18,7 @@ class PLP extends React.Component {
                 <h1 className={style.title}>{this.props.categories[this.props.activeCategoryIndex]}</h1>
                 <div className={style.wrapper}>
                     {this.props.products.map(product => <div key={product.id} className={style.container} id={!product.inStock ? style.blur : ""}>
-                        <div className={style.add} onClick={this.addToCart.bind(this, product, product.inStock)}></div>
+                        <div className={style.add} onClick={this.addToCart.bind(this, product, product.inStock, product.id, product.attributes, 0)}></div>
                         <Link key={product.id} to={"/ProductDescription"} state={product}>
                             <div className={style.product} onClick={() => this.props.setShowDescription(true)}>
                                 <img src={product.gallery && product.gallery[0]} alt="product" className={style.img} />
