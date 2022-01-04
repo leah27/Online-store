@@ -1,6 +1,3 @@
-// const SET_ACTIVE_CATEGORY = 'SET_ACTIVE_CATEGORY'
-// const SET_CATEGORIES = 'SET_CATEGORIES'
-
 export const setActiveCategory = (category) => ({
     type: 'SET_ACTIVE_CATEGORY',
     payload: category

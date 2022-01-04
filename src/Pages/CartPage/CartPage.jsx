@@ -5,23 +5,22 @@ import { withRouter } from '../../Hocs/withRouter'
 
 class CartPage extends React.Component {
     render() {
-        const { chosenProducts, totalPrice, increment,
-            decrement, counter, addProduct, removeProduct,
+        const { chosenProducts, increment,
+            decrement, counter, addProduct,
             uniqueChosenProducts, currentCurrency,
-            activeAttributes } = this.props
+            activeAttributes, setPrice } = this.props
         return (
             <div className={style.container}>
                 <h1 className={style.title}>cart</h1>
                 <Cart displayType="page" chosenProducts={chosenProducts}
-                    totalPrice={totalPrice}
                     increment={increment}
                     decrement={decrement}
                     counter={counter}
                     addProduct={addProduct}
-                    removeProduct={removeProduct}
                     uniqueChosenProducts={uniqueChosenProducts}
                     currentCurrency={currentCurrency}
                     activeAttributes={activeAttributes}
+                    setPrice={setPrice}
                 />
             </div>
         )

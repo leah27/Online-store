@@ -9,9 +9,9 @@ class Header extends React.Component {
         const { categories, activeCategoryIndex,
             setActiveCategory, currentCurrency,
             currencies, setCurrentCurrency,
-            addProduct, counter, totalPrice,
-            chosenProducts, uniqueChosenProducts,
-            increment, removeProduct, decrement,
+            addProduct, counter, prices,
+            chosenProducts, increment,
+            decrement, setPrice,
             activeAttributes } = this.props
         return (
             <header className={style.header}>
@@ -25,14 +25,13 @@ class Header extends React.Component {
                         setCurrentCurrency={setCurrentCurrency} />
                     <MyBag addProduct={addProduct}
                         counter={counter}
-                        totalPrice={totalPrice}
+                        prices={prices}
                         chosenProducts={chosenProducts}
-                        uniqueChosenProducts={uniqueChosenProducts}
                         increment={increment}
-                        removeProduct={removeProduct}
                         decrement={decrement}
                         currentCurrency={currentCurrency}
                         activeAttributes={activeAttributes}
+                        setPrice={setPrice}
                     />
                 </div>
             </header >

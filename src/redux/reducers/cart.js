@@ -1,45 +1,43 @@
 const initialState = {
-    chosenProducts: [],
-    totalPrice: 0,
-    counter: 0,
-    activeAttributes: {}
+    chosenProducts: {},
+    prices: {},
+    counter: {},
 }
 
 const cart = (state = initialState, action) => {
     switch (action.type) {
+        case 'SET_PRICE': {
+            return {
+                ...state,
+                prices: { ...state.prices, [action.productKey]: action.payload }
+            }
+        }
         case 'ADD_PRODUCT': {
             return {
                 ...state,
-                chosenProducts: [...state.chosenProducts, action.payload]
+                chosenProducts: { ...state.chosenProducts, [action.productKey]: action.payload }
             }
         }
         case 'INCREMENT': {
             return {
                 ...state,
-                counter: action.payload
+                counter: { ...state.counter, [action.productKey]: action.payload }
             }
         }
-        case 'REMOVE_PRODUCT': {
-            return {
-                ...state,
-                chosenProducts: [...state.chosenProducts.filter(product => product !== action.payload)]
-            }
-        }
+        // case 'REMOVE_PRODUCT': {
+        //     return {
+        //         ...state,
+        //         chosenProducts: [...state.chosenProducts.filter(product => product !== action.payload)]
+        //     }
+        // }
         case 'DECREMENT': {
             return {
                 ...state,
-                counter: action.payload
-            }
-        }
-        case 'SET_ACTIVE_ATTRIBUTE': {
-            return {
-                ...state,
-                activeAttributes: { ...state.activeAttributes, [action.productKey]: { ...state.activeAttributes[action.productKey], [action.key]: action.payload } }
+                counter: { ...state.counter, [action.productKey]: action.payload }
             }
         }
         default:
             return state
     }
 }
-
 export default cart

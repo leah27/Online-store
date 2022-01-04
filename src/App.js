@@ -7,7 +7,7 @@ import { initializeApollo } from './GraphQL/initializeApollo'
 import { connect } from 'react-redux'
 import { setProducts } from './redux/actions/products'
 import { setCategories, setActiveCategory, setShowDescription } from './redux/actions/categories';
-import { addProduct, increment, removeProduct, decrement, setActiveAttribute } from './redux/actions/cart'
+import { addProduct, increment, decrement, setPrice } from './redux/actions/cart'
 import { setCurrencies, setCurrentCurrency } from './redux/actions/currencies';
 const client = initializeApollo()
 const res = client.query({
@@ -20,50 +20,46 @@ const currencies = client.query({
 })
 class App extends React.Component {
   componentDidMount() {
+    const { setCategories, setCurrencies } = this.props
     res.then(res => {
-      this.props.setCategories(res.data.categories.map(categories => categories.name))
+      setCategories(res.data.categories.map(categories => categories.name))
     })
     currencies.then(res => {
-      this.props.setCurrencies(res.data.currencies)
+      setCurrencies(res.data.currencies)
     })
   }
   componentDidUpdate() {
+    const { setProducts, activeCategoryIndex } = this.props
     res.then(res => {
-      this.props.setProducts(res.data.categories[this.props.activeCategoryIndex].products)
+      setProducts(res.data.categories[activeCategoryIndex].products)
     })
   }
   render() {
     const { categories, activeCategoryIndex,
       setShowDescription, setActiveCategory,
-      counter, totalPrice, chosenProducts,
-      addProduct, increment, removeProduct,
-      decrement, currentCurrency, setCurrentCurrency,
-      activeAttributes, showDescription, products,
-      setActiveAttribute, currencies } = this.props
-    let uniqueChosenProducts = Array.from(new Set(chosenProducts.map(p => p.id)))
-      .map(id => {
-        return chosenProducts.find(p => p.id === id)
-        // new Set(chosenProducts.find(p => p.id === id).attributes.map(attribute => attribute))
-      })
+      counter, prices, chosenProducts,
+      addProduct, increment, decrement,
+      currentCurrency, setCurrentCurrency,
+      showDescription, products,
+      currencies, setPrice } = this.props
+
     return (
       <>
         <div className="app">
           <Header categories={categories}
             activeCategoryIndex={activeCategoryIndex}
-            setShowDescription={setShowDescription}
             setActiveCategory={setActiveCategory}
             counter={counter}
-            totalPrice={totalPrice}
+            prices={prices}
             chosenProducts={chosenProducts}
-            uniqueChosenProducts={uniqueChosenProducts}
             addProduct={addProduct}
             increment={increment}
-            removeProduct={removeProduct}
+            // removeProduct={removeProduct}
             decrement={decrement}
             currentCurrency={currentCurrency}
             currencies={currencies}
             setCurrentCurrency={setCurrentCurrency}
-            activeAttributes={activeAttributes}
+            setPrice={setPrice}
           />
           <section className="content">
             <RouteSwitcher categories={categories}
@@ -72,12 +68,10 @@ class App extends React.Component {
               setShowDescription={setShowDescription}
               products={products}
               chosenProducts={chosenProducts}
-              activeAttributes={activeAttributes}
-              setActiveAttribute={setActiveAttribute}
-              uniqueChosenProducts={uniqueChosenProducts}
+              setPrice={setPrice}
               addProduct={addProduct}
               increment={increment}
-              removeProduct={removeProduct}
+              // removeProduct={removeProduct}
               decrement={decrement}
               counter={counter}
               currentCurrency={currentCurrency}
@@ -93,8 +87,8 @@ const mapStateToProps = (state) => {
     products: state.products.products,
     categories: state.categories.categories,
     activeCategoryIndex: state.categories.activeCategoryIndex,
-    showDescription: state.categories.showDescription,
-    totalPrice: state.cart.totalPrice,
+    // showDescription: state.categories.showDescription,
+    prices: state.cart.prices,
     counter: state.cart.counter,
     chosenProducts: state.cart.chosenProducts,
     activeAttributes: state.cart.activeAttributes,
@@ -110,9 +104,8 @@ const mapDispatchToProps = {
   setShowDescription,
   addProduct,
   increment,
-  removeProduct,
+  setPrice,
   decrement,
-  setActiveAttribute,
   setCurrencies,
   setCurrentCurrency
 }

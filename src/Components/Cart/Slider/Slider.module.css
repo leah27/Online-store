@@ -1,0 +1,51 @@
+.overlayImg {
+    width: 105px;
+    height: 150px;
+}
+.pageImg {
+    width: 75%;
+    height: 250px;
+}
+.overlayImg, .pageImg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    object-fit: contain;
+}
+.overlayLeftArrow, .overlayRightArrow, .pageLeftArrow, .pageRightArrow {
+    width: 12px;
+    height: 20px;
+    position: absolute;
+    background: gainsboro;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 9;
+    box-shadow: 1px 3px 8px -1px rgb(0 0 0 / 39%);
+    cursor: pointer;
+    opacity: .7;
+}
+.pageLeftArrow, .overlayLeftArrow {
+    background-image: url('../../../images/left.png')!important;
+}
+.pageRightArrow, .overlayRightArrow {
+    background-image: url('../../../images/right.png')!important;
+}
+.pageLeftArrow {
+    top: 111px;
+    left: 25%;
+}
+.pageRightArrow {
+    top: 111px;
+    left: 95%;
+}
+.overlayLeftArrow {
+    top: 60px;
+    left: 20%;
+}
+.overlayRightArrow {
+    top: 60px;
+    left: 90%;
+}
+#hide {
+    display: none;
+}

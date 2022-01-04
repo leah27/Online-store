@@ -7,7 +7,8 @@ class MyBag extends React.Component {
     state = { showCart: false }
     cartRef = React.createRef();
     toggleCart = () => {
-        this.props.uniqueChosenProducts.length < 3 && this.setState({ showCart: !this.state.showCart })
+        const { chosenProducts } = this.props
+        Object.values(chosenProducts).length < 3 && this.setState({ showCart: !this.state.showCart })
     }
     handleOutsideClick = (event) => {
         const path = event.path || (event.composedPath && event.composedPath())
@@ -22,7 +23,8 @@ class MyBag extends React.Component {
         document.body.addEventListener('click', this.handleOutsideClick)
     }
     componentDidUpdate() {
-        if (this.state.showCart && this.props.chosenProducts.length > 0) {
+        const { chosenProducts } = this.props
+        if (this.state.showCart && Object.values(chosenProducts).length > 0) {
             document.querySelector('.content').classList.add('background')
         } else {
             document.querySelector('.content').classList.remove('background')
@@ -32,29 +34,28 @@ class MyBag extends React.Component {
         document.body.removeEventListener('click', this.handleOutsideClick)
     }
     render() {
-        const { uniqueChosenProducts, chosenProducts, counter,
-            addProduct, totalPrice, increment, removeProduct,
-            decrement, currentCurrency, activeAttributes } = this.props
+        const { chosenProducts, counter, setPrice,
+            addProduct, prices, increment, activeAttributes,
+            decrement, currentCurrency } = this.props
         return (
             <div ref={this.cartRef}>
                 <div className={style.bag} onClick={this.toggleCart}>
-                    {uniqueChosenProducts.length > 2 && <Link to={"/Cart"} state={chosenProducts}></Link>}
-                    {counter > 0 && <span className={style.counter}>{counter}</span>}
+                    {Object.values(chosenProducts).length > 2 && <Link to={"/Cart"} state={Object.values(chosenProducts)}></Link>}
+                    {Object.keys(chosenProducts).length > 0 && <span className={style.counter}>{Object.values(counter).reduce((a, b) => a + b, 0)}</span>}
                 </div>
-                {this.state.showCart && chosenProducts.length > 0 &&
+                {this.state.showCart && Object.values(chosenProducts).length > 0 &&
                     <div className={style.background}>
                         <div className={style.cart}>
                             <div className={style.close} onClick={this.close}></div>
                             <Cart displayType="overlay" addProduct={addProduct}
                                 counter={counter}
-                                totalPrice={totalPrice}
+                                prices={prices}
                                 chosenProducts={chosenProducts}
                                 increment={increment}
-                                removeProduct={removeProduct}
                                 decrement={decrement}
-                                uniqueChosenProducts={uniqueChosenProducts}
                                 currentCurrency={currentCurrency}
                                 activeAttributes={activeAttributes}
+                                setPrice={setPrice}
                             />
                             <div className={style.buttons}>
                                 <button className={`${style.button} ${style.view}`} onClick={this.close}><Link to={"/Cart"}>
