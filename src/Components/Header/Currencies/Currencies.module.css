@@ -5,20 +5,20 @@
     width: 38px;
     height: 20px;
     text-align: center;
-    padding-right: 22px;
+    margin-right: 22px;
     position: relative;
     cursor: pointer;
 }
 .currency::before {
     content: url('../../../images/down.png');
     position: absolute;
-    right: 20px;
+    right: -2px;
     bottom: 0;
 }
 .listShown::before {
     content: url('../../../images/up.png');
     position: absolute;
-    right: 21px;
+    right: -2px;
     bottom: 0;
 }
 .currencyList {

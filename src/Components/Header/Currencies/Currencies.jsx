@@ -14,10 +14,10 @@ class Currencies extends React.Component {
         }
     }
     componentDidMount() {
-        document.body.addEventListener('click', this.handleOutsideClick)
+        window.addEventListener('click', this.handleOutsideClick)
     }
     componentWillUnmount() {
-        document.body.removeEventListener('click', this.handleOutsideClick)
+        window.removeEventListener('click', this.handleOutsideClick)
     }
     render() {
         const { currentCurrency, currencies, setCurrentCurrency } = this.props

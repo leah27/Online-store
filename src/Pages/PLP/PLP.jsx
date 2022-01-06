@@ -18,14 +18,16 @@ class PLP extends React.Component {
     render() {
         const { categories, activeCategoryIndex, setShowDescription,
             currentCurrency, products } = this.props
+        const productList = activeCategoryIndex === 0 ? products : products
+            .filter(product => product.category === categories[activeCategoryIndex])
         return (
             <>
                 <h1 className={style.title}>{categories[activeCategoryIndex]}</h1>
                 <div className={style.wrapper}>
-                    {products.map((product, index) => <div key={product.id} className={style.container} id={!product.inStock ? style.blur : ""}>
-                        <div className={style.add} onClick={this.addToCart.bind(this, product, product.id, product.attributes,
-                            Object.values(product.prices[0])[1])}></div>
-                        <Link key={product.id} to={"/ProductDescription"} state={product}>
+                    {productList.map(product => <div key={product.id} className={style.container} id={!product.inStock ? style.blur : ""}>
+                        {product.inStock && <div className={style.add} onClick={this.addToCart.bind(this, product, product.id, product.attributes,
+                            Object.values(product.prices[0])[1])}></div>}
+                        <Link key={product.id} to={product.inStock && "/ProductDescription"} state={product}>
                             <div className={style.product} onClick={() => setShowDescription(true)}>
                                 <img src={product.gallery && product.gallery[0]} alt="product" className={style.img} />
                                 <p className={style.name}>{product.brand}{" "}{product.name}</p>
@@ -33,7 +35,9 @@ class PLP extends React.Component {
                                     {`${currentCurrency}${product.prices && Object.values(getPriceByCurrency(product.prices, currentCurrency)[0])[1]}`}
                                 </p>
                                 {!product.inStock && <p className={style.out}>out of stock</p>}
-                            </div></Link></div>)}
+                            </div>
+                        </Link>
+                    </div>)}
                 </div>
             </>
         )

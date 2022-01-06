@@ -10,7 +10,10 @@
     position: absolute;
     top: 0;
     right: 0;
-    object-fit: contain;
+}
+.overlayImg > img, .pageImg > img {
+    width: 100%!important;
+    height: inherit;
 }
 .overlayLeftArrow, .overlayRightArrow, .pageLeftArrow, .pageRightArrow {
     width: 12px;
@@ -32,15 +35,15 @@
 }
 .pageLeftArrow {
     top: 111px;
-    left: 25%;
+    left: 0;
 }
 .pageRightArrow {
     top: 111px;
-    left: 95%;
+    left: 92%;
 }
 .overlayLeftArrow {
     top: 60px;
-    left: 20%;
+    left: 0;
 }
 .overlayRightArrow {
     top: 60px;

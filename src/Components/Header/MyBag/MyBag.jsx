@@ -20,18 +20,18 @@ class MyBag extends React.Component {
         this.setState({ showCart: false })
     }
     componentDidMount() {
-        document.body.addEventListener('click', this.handleOutsideClick)
+        window.addEventListener('click', this.handleOutsideClick)
     }
     componentDidUpdate() {
-        const { chosenProducts } = this.props
+        const { chosenProducts, toggleCart } = this.props
         if (this.state.showCart && Object.values(chosenProducts).length > 0) {
-            document.querySelector('.content').classList.add('background')
+            toggleCart(true)
         } else {
-            document.querySelector('.content').classList.remove('background')
+            toggleCart(false)
         }
     }
     componentWillUnmount() {
-        document.body.removeEventListener('click', this.handleOutsideClick)
+        window.removeEventListener('click', this.handleOutsideClick)
     }
     render() {
         const { chosenProducts, counter, setPrice,
@@ -44,26 +44,26 @@ class MyBag extends React.Component {
                     {Object.keys(chosenProducts).length > 0 && <span className={style.counter}>{Object.values(counter).reduce((a, b) => a + b, 0)}</span>}
                 </div>
                 {this.state.showCart && Object.values(chosenProducts).length > 0 &&
-                    <div className={style.background}>
-                        <div className={style.cart}>
-                            <div className={style.close} onClick={this.close}></div>
-                            <Cart displayType="overlay" addProduct={addProduct}
-                                counter={counter}
-                                prices={prices}
-                                chosenProducts={chosenProducts}
-                                increment={increment}
-                                decrement={decrement}
-                                currentCurrency={currentCurrency}
-                                activeAttributes={activeAttributes}
-                                setPrice={setPrice}
-                            />
-                            <div className={style.buttons}>
-                                <button className={`${style.button} ${style.view}`} onClick={this.close}><Link to={"/Cart"}>
-                                    view bag</Link></button>
-                                <button className={`${style.button} ${style.checkout}`}>check out</button>
-                            </div>
+                    // <div className={style.background}>
+                    <div className={style.cart}>
+                        <div className={style.close} onClick={this.close}></div>
+                        <Cart displayType="overlay" addProduct={addProduct}
+                            counter={counter}
+                            prices={prices}
+                            chosenProducts={chosenProducts}
+                            increment={increment}
+                            decrement={decrement}
+                            currentCurrency={currentCurrency}
+                            activeAttributes={activeAttributes}
+                            setPrice={setPrice}
+                        />
+                        <div className={style.buttons}>
+                            <button className={`${style.button} ${style.view}`} onClick={this.close}><Link to={"/Cart"}>
+                                view bag</Link></button>
+                            <button className={`${style.button} ${style.checkout}`}>check out</button>
                         </div>
                     </div>
+                    // </div>
                 }
             </div>
         )

@@ -18,10 +18,13 @@ class Slider extends React.Component {
     render() {
         const { displayType, gallery } = this.props
         return (
-            <div onMouseEnter={this.showArrows.bind(this)} onMouseLeave={this.hideArrows.bind(this)}>
-                {this.state.inElement && <div className={displayType === "overlay" ? style.overlayLeftArrow : style.pageLeftArrow} id={this.state.activeImgIndex === 0 ? style.hide : ""} onClick={this.moveLeft.bind(this)}></div>}
-                <img src={gallery[this.state.activeImgIndex]} alt="product" className={displayType === "overlay" ? style.overlayImg : style.pageImg} />
-                {this.state.inElement && <div className={displayType === "overlay" ? style.overlayRightArrow : style.pageRightArrow} id={this.state.activeImgIndex === (gallery.length - 1) ? style.hide : ""} onClick={this.moveRight.bind(this)}></div>}
+            <div onMouseEnter={this.showArrows.bind(this)} onMouseLeave={this.hideArrows.bind(this)}
+                className={displayType === "overlay" ? style.overlayImg : style.pageImg}>
+                {this.state.inElement && <div className={displayType === "overlay" ? style.overlayLeftArrow
+                    : style.pageLeftArrow} id={this.state.activeImgIndex === 0 ? style.hide : ""} onClick={this.moveLeft.bind(this)}></div>}
+                <img src={gallery[this.state.activeImgIndex]} alt="product" />
+                {this.state.inElement && <div className={displayType === "overlay" ? style.overlayRightArrow
+                    : style.pageRightArrow} id={this.state.activeImgIndex === (gallery.length - 1) ? style.hide : ""} onClick={this.moveRight.bind(this)}></div>}
             </div>
         )
     }

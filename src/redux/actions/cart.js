@@ -17,10 +17,10 @@ export const increment = (counter, productKey) => ({
     payload: counter === undefined ? 1 : counter + 1
 })
 
-// export const removeProduct = (product) => ({
-//     type: "REMOVE_PRODUCT",
-//     payload: product
-// })
+export const toggleCart = (boolean) => ({
+    type: "TOGGLE_CART",
+    payload: boolean
+})
 
 export const decrement = (counter, productKey) => ({
     type: "DECREMENT",

@@ -26,19 +26,19 @@
     color: #FFFFFF;
     text-align: center;
 }
-.background {
+/* .background {
     width: 100%;
     height: 100%;
     position: fixed;
     top: 80px;
     left: 0;
     z-index: 98;
-}
+} */
 .cart {
     width: 325px;
     height: 540px;
-    position: absolute;
-    top: 0px;
+    position: fixed;
+    top: 80px;
     right: 7.015%;
     background-color: #FFFFFF;
     z-index: 99;

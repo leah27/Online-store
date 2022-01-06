@@ -12,7 +12,7 @@ class Header extends React.Component {
             addProduct, counter, prices,
             chosenProducts, increment,
             decrement, setPrice,
-            activeAttributes } = this.props
+            activeAttributes, toggleCart } = this.props
         return (
             <header className={style.header}>
                 <NavMenu categories={categories}
@@ -32,6 +32,7 @@ class Header extends React.Component {
                         currentCurrency={currentCurrency}
                         activeAttributes={activeAttributes}
                         setPrice={setPrice}
+                        toggleCart={toggleCart}
                     />
                 </div>
             </header >

@@ -13,7 +13,7 @@ body, #root, .app {
 
 .content {
   min-height: calc(100vh - 80px);
-  width: 100%;
+  width: 100vw;
 }
 
 button {
@@ -26,6 +26,9 @@ button {
   background: rgba(57, 55, 72, 0.22);
   position: fixed;
   opacity: .7;
+  pointer-events: none;
+  width: 100vw;
+  min-height: calc(100vh - 80px);
 }
 
 ul {
