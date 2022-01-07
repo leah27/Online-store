@@ -19,6 +19,9 @@
     margin-bottom: 103px;
     width: 386px;
 }
+.noCursor {
+    cursor: auto;
+}
 .product {
     width: inherit;
     height: 444px;

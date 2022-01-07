@@ -6,6 +6,7 @@ export const getPriceByCurrency = (prices, currentCurrency) => {
             case '¥': return price.currency === "JPY";
             case 'A$': return price.currency === "AUD";
             case '₽': return price.currency === "RUB";
+            default: return price.currency === "USD";
         }
     })
 }

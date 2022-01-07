@@ -5,5 +5,6 @@ export const setCurrencySymbol = (currency) => {
         case 'JPY': return "¥";
         case 'AUD': return "A$";
         case 'RUB': return "₽";
+        default: return "$";
     }
 }
