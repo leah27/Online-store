@@ -20,7 +20,7 @@
     width: 386px;
 }
 .noCursor {
-    cursor: auto;
+    cursor: default;
 }
 .product {
     width: inherit;
