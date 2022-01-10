@@ -18,6 +18,7 @@
     position: relative;
     margin-bottom: 103px;
     width: 386px;
+    mix-blend-mode: multiply;
 }
 
 .product {
@@ -45,7 +46,6 @@
     margin: 16px 16px 0;
     height: 330px;
     width: 354px;
-    mix-blend-mode: multiply;
 }
 .name {
     font-family: 'Raleway';
@@ -73,9 +73,9 @@
     color: #8D8F9A;
     text-transform: uppercase;
     position: absolute;
-    top: 30%;
+    top: 33%;
     left: 50%;
-    transform: translate(-50%, -30%);
+    transform: translate(-50%, -33%);
 }
 #blur {
     filter: blur(1px);
