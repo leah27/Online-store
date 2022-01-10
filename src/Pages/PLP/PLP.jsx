@@ -27,8 +27,7 @@ class PLP extends React.Component {
                     {productList.map(product => <div key={product.id} className={style.container} id={!product.inStock ? style.blur : ""}>
                         {product.inStock && <div className={style.add} onClick={this.addToCart.bind(this, product, product.id, product.attributes,
                             Object.values(product.prices[0])[1])}></div>}
-                        <Link key={product.id} to={product.inStock && "/ProductDescription"} state={product}
-                            className={!product.inStock ? style.noCursor : ""}>
+                        <Link key={product.id} to={"/ProductDescription"} state={product}>
                             <div className={style.product} onClick={() => setShowDescription(true)}>
                                 <img src={product.gallery && product.gallery[0]} alt="product" className={style.img} />
                                 <p className={style.name}>{product.brand}{" "}{product.name}</p>

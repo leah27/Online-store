@@ -29,9 +29,10 @@
 .large {
     position: absolute;
     width: 82.54%;
-    /* height: 511px; */
+    height: 511px;
     right: 0;
     top: 0;
+    object-fit: contain;
 }
 
 .title {
@@ -130,4 +131,18 @@
 .button:hover {
     filter: blur(1px);
     box-shadow: 1px 3px 8px -1px rgb(0 0 0 / 39%);
+}
+.out {
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 24px;
+    color: #8D8F9A;
+    text-transform: uppercase;
+    position: absolute;
+    top: 35%;
+    left: 60%;
+    transform: translate(-50%, -30%);
+}
+#blur {
+    filter: blur(1px);
 }

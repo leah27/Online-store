@@ -19,9 +19,7 @@
     margin-bottom: 103px;
     width: 386px;
 }
-.noCursor {
-    cursor: default;
-}
+
 .product {
     width: inherit;
     height: 444px;
@@ -47,6 +45,7 @@
     margin: 16px 16px 0;
     height: 330px;
     width: 354px;
+    mix-blend-mode: multiply;
 }
 .name {
     font-family: 'Raleway';

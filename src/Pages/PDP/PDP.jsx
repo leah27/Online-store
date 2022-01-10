@@ -26,9 +26,12 @@ class PDP extends React.Component {
             <>
                 <div className={style.container}>
                     <div className={style.gallery}>
-                        {data.gallery && data.gallery.map((img, index) =>
-                            <img key={index} src={img} className={this.state.activeImgIndex === index ? style.large : style.small}
+                        {data.gallery && data.gallery.map((img, index) => <React.Fragment key={index}>
+                            <img src={img} className={this.state.activeImgIndex === index ? style.large : style.small}
+                                id={!data.inStock ? style.blur : ""}
                                 alt="product" onClick={() => this.setState({ ...this.state, activeImgIndex: index })} />
+                            {!data.inStock && <p className={style.out}>out of stock</p>}
+                        </React.Fragment>
                         )}
                     </div>
                     <div className={style.description}>
@@ -39,7 +42,7 @@ class PDP extends React.Component {
                             <div className={style.buttons}>
                                 {attribute.items.map((button, index) =>
                                     <button key={`${attribute.id}` + index} style={{ backgroundColor: button.value }}
-                                        onClick={() => this.setState({ ...this.state, [`${attribute.id}`]: index })}
+                                        onClick={() => data.inStock && this.setState({ ...this.state, [`${attribute.id}`]: index })}
                                         id={this.state[`${attribute.id}`] === index ? attribute.type === 'swatch' ? style.activeColor : style.active : ""}
                                         className={style.button}>{attribute.type !== 'swatch' && button.value}</button>)}
                             </div></React.Fragment>)}
